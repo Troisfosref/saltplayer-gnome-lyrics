@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.saltplayer-lyrics"
+          path="/org/gnome/shell/extensions/saltplayer-lyrics/">
+    <key name="panel-box" type="s">
+      <default>'left'</default>
+      <summary>Panel area</summary>
+      <description>Panel area containing the lyrics indicator: left, center, or right.</description>
+    </key>
+    <key name="panel-index" type="i">
+      <range min="0" max="30"/>
+      <default>0</default>
+      <summary>Position inside the panel area</summary>
+    </key>
+    <key name="lyrics-width" type="i">
+      <range min="120" max="1000"/>
+      <default>360</default>
+      <summary>Fixed lyrics viewport width in pixels</summary>
+    </key>
+    <key name="scroll-speed-mode" type="s">
+      <default>'dynamic'</default>
+      <summary>Lyrics scrolling speed mode</summary>
+      <description>One of dynamic, slow, normal, fast, or very-fast.</description>
+    </key>
+    <key name="text-alignment" type="s">
+      <default>'center'</default>
+      <summary>Lyrics alignment inside the fixed-width viewport</summary>
+      <description>One of left, center, or right.</description>
+    </key>
+    <key name="display-mode" type="s">
+      <default>'both'</default>
+      <summary>Original and translation display mode</summary>
+      <description>One of original, translation, or both.</description>
+    </key>
+    <key name="hide-clock-when-centered" type="b">
+      <default>false</default>
+      <summary>Hide the clock while centered lyrics are visible</summary>
+    </key>
+  </schema>
+</schemalist>

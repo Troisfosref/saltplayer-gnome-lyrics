@@ -1,0 +1,8 @@
+{
+  "uuid": "saltplayer-lyrics@troisfosref.github.io",
+  "name": "Salt Player Lyrics",
+  "description": "Displays synchronized lyrics from Salt Player in the GNOME top bar.\n\nRequires the GNOME Top Bar Lyrics Bridge plugin to be installed in Salt Player.",
+  "shell-version": ["50"],
+  "settings-schema": "org.gnome.shell.extensions.saltplayer-lyrics",
+  "url": "https://github.com/Troisfosref/saltplayer-gnome-lyrics"
+}
