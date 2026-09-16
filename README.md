@@ -45,7 +45,7 @@ gnome-extensions install --force saltplayer-lyrics@troisfosref.github.io.zip
 gnome-extensions enable saltplayer-lyrics@troisfosref.github.io
 ```
 
-也可以在拓展管理器中搜索“Salt Player Lyrics”安装，或从 [GNOME Extensions](https://extensions.gnome.org/extension/10965/salt-player-lyrics/) 安装。
+也可以在拓展管理器中搜索“Salt Player Lyrics”安装，或从 [GNOME Extensions](https://extensions.gnome.org/extension/10965/salt-player-lyrics/) 安装。（审核中）
 
 ## 从源码构建
 
