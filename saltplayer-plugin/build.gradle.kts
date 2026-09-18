@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "io.github.troisfosref"
-version = "1.0.0"
+version = "1.1.0"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_21
@@ -48,7 +48,7 @@ tasks.named<Jar>("jar") {
             "Plugin-Class" to pluginClass,
             "Plugin-Id" to pluginId,
             "Plugin-Name" to pluginName,
-            "Plugin-Description" to "Publishes Salt Player synchronized lyrics on the Linux session D-Bus",
+            "Plugin-Description" to "Publishes synchronized lyrics and low-latency playback controls on the Linux session D-Bus",
             "Plugin-Version" to pluginVersion,
             "Plugin-Provider" to "Troisfosref",
             "Plugin-Open-Source-Url" to pluginRepository,

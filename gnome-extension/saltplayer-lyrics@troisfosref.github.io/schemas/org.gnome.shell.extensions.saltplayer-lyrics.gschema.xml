@@ -22,19 +22,20 @@
       <summary>Lyrics scrolling speed mode</summary>
       <description>One of dynamic, slow, normal, fast, or very-fast.</description>
     </key>
-    <key name="text-alignment" type="s">
-      <default>'center'</default>
-      <summary>Lyrics alignment inside the fixed-width viewport</summary>
-      <description>One of left, center, or right.</description>
-    </key>
     <key name="display-mode" type="s">
       <default>'both'</default>
       <summary>Original and translation display mode</summary>
       <description>One of original, translation, or both.</description>
     </key>
+    <key name="cover-radius" type="i">
+      <range min="0" max="11"/>
+      <default>6</default>
+      <summary>Album cover corner radius in pixels</summary>
+      <description>Zero keeps square corners and eleven makes the 22-pixel cover circular.</description>
+    </key>
     <key name="hide-clock-when-centered" type="b">
       <default>false</default>
-      <summary>Hide the clock while centered lyrics are visible</summary>
+      <summary>Hide the clock while Salt Player is connected</summary>
     </key>
   </schema>
 </schemalist>

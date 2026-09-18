@@ -10,6 +10,10 @@ interface LyricsRemote : DBusInterface {
 
     fun GetVersion(): String
 
+    fun Play()
+
+    fun Pause()
+
     class LyricsChanged(
         path: String,
         val snapshot: String,

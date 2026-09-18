@@ -1,8 +1,18 @@
 .saltplayer-lyrics-label {
-  padding-left: 8px;
-  padding-right: 8px;
+  padding-left: 6px;
+  padding-right: 6px;
 }
 
-.saltplayer-lyrics-track {
-  max-width: 420px;
+.saltplayer-panel-content {
+  spacing: 5px;
+}
+
+.saltplayer-panel-cover {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.saltplayer-panel-status {
+  width: 22px;
+  color: rgba(255, 255, 255, 0.72);
 }

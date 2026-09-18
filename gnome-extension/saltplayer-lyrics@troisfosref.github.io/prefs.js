@@ -99,15 +99,26 @@ export default class SaltPlayerLyricsPreferences extends ExtensionPreferences {
             placementGroup,
             window._settings,
             'hide-clock-when-centered',
-            '有歌词时隐藏时钟',
-            '仅在歌词位于顶栏中央且正在显示时生效'
+            'Salt Player 运行时隐藏时钟',
+            '歌词暂时为空时仍保持隐藏；完全退出 Salt Player 后恢复'
         );
 
         const lyricsGroup = new Adw.PreferencesGroup({
             title: '歌词显示',
-            description: '设置固定显示宽度、文字对齐和原文、翻译的组合方式。',
+            description: '歌词始终居中显示，可设置固定宽度和原文、翻译的组合方式。',
         });
         page.add(lyricsGroup);
+
+        addIntegerSpin(
+            lyricsGroup,
+            window._settings,
+            'cover-radius',
+            '封面圆角（像素）',
+            '0 为原始方形，11 为圆形',
+            0,
+            11,
+            1
+        );
 
         addStringCombo(
             lyricsGroup,
@@ -130,18 +141,6 @@ export default class SaltPlayerLyricsPreferences extends ExtensionPreferences {
             120,
             1000,
             10
-        );
-        addStringCombo(
-            lyricsGroup,
-            window._settings,
-            'text-alignment',
-            '歌词对齐',
-            '控制歌词在固定宽度组件里的位置',
-            [
-                ['left', '靠左'],
-                ['center', '居中'],
-                ['right', '靠右'],
-            ]
         );
         addStringCombo(
             lyricsGroup,

@@ -1,5 +1,6 @@
 package io.github.saltplayer.lyrics.dbus
 
+import com.xuncorp.spw.workshop.api.WorkshopApi
 import io.github.saltplayer.lyrics.LyricsSnapshot
 import org.freedesktop.dbus.connections.impl.DBusConnection
 import org.freedesktop.dbus.connections.impl.DBusConnectionBuilder
@@ -13,7 +14,11 @@ class LyricsDbusService(
 
     override fun GetSnapshot(): String = snapshotProvider().toJson()
 
-    override fun GetVersion(): String = "1.0.0"
+    override fun GetVersion(): String = "1.1.0"
+
+    override fun Play() = WorkshopApi.playback.play()
+
+    override fun Pause() = WorkshopApi.playback.pause()
 
     fun start() {
         check(connection == null) { "D-Bus service has already started" }

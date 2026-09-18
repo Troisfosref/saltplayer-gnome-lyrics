@@ -34,7 +34,7 @@ class LyricsDbusServiceTest {
             )
 
             assertEquals(current.get().toJson(), remote.GetSnapshot())
-            assertEquals("1.0.0", remote.GetVersion())
+            assertEquals("1.1.0", remote.GetVersion())
 
             val signalPayload = AtomicReference<String>()
             val signalReceived = CountDownLatch(1)

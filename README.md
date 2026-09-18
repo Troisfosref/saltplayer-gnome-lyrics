@@ -4,17 +4,20 @@ Display Salt Player synchronized lyrics in the GNOME top bar.
 
 在 GNOME 顶栏显示 Salt Player 同步歌词。项目由两个组件组成：
 
-- `saltplayer-plugin`：Salt Player 创意工坊插件，通过会话 D-Bus 发布当前歌词。
-- `gnome-extension`：GNOME Shell 扩展，负责显示、滚动和切换歌词。
+- `saltplayer-plugin`：Salt Player 创意工坊插件，通过会话 D-Bus 发布当前歌词并直接控制播放。
+- `gnome-extension`：GNOME Shell 扩展，负责显示歌词，通过 MPRIS 获取封面和播放状态。
 
 ## 功能
 
 - 顶栏左侧、中央或右侧位置
-- 固定宽度及组件内左对齐、居中、右对齐
+- 固定宽度，歌词始终居中显示
 - 根据歌词长度和时间戳动态滚动
 - 原文、翻译或双语显示
+- 切歌等待歌词期间显示歌名与歌手
 - 歌词切换淡入淡出及轻微纵向移动
-- 居中显示歌词时可自动隐藏时钟
+- 顶栏封面与播放状态，封面圆角可从方形调至圆形
+- 点击歌词直接播放或暂停
+- Salt Player 运行且歌词位于中央时可持续隐藏时钟，退出播放器后自动恢复
 - GNOME 原生图形化首选项
 
 ## 安装
@@ -58,7 +61,7 @@ make
 生成文件：
 
 ```text
-saltplayer-plugin/build/distributions/saltplayer-gnome-lyrics-plugin-1.0.0.zip
+saltplayer-plugin/build/distributions/saltplayer-gnome-lyrics-plugin-1.1.0.zip
 gnome-extension/build/saltplayer-lyrics@troisfosref.github.io.zip
 ```
 
@@ -73,6 +76,9 @@ Salt Player PlaybackExtensionPoint
               │
               ▼
        GNOME Shell extension
+
+Salt Player MPRIS ──────────► 封面与播放状态
+歌词桥接插件 D-Bus ─────────► 歌词与低延迟播放/暂停
 ```
 
 ## 支持范围

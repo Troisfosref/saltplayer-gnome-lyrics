@@ -9,17 +9,20 @@ object LyricsBridge {
     @Volatile
     private var snapshot = LyricsSnapshot()
 
-    @Volatile
     private var service: LyricsDbusService? = null
 
     fun attach(newService: LyricsDbusService) {
-        service = newService
-        newService.publish(snapshot)
+        synchronized(lock) {
+            service = newService
+            newService.publish(snapshot)
+        }
     }
 
     fun detach(currentService: LyricsDbusService) {
-        if (service === currentService) {
-            service = null
+        synchronized(lock) {
+            if (service === currentService) {
+                service = null
+            }
         }
     }
 
@@ -55,7 +58,8 @@ object LyricsBridge {
                     translation = line.pureSubText.orEmpty(),
                     startTime = line.startTime,
                     endTime = line.endTime,
-                    available = line.pureMainText.isNotBlank(),
+                    available = line.pureMainText.isNotBlank()
+                        || !line.pureSubText.isNullOrBlank(),
                 )
             }
         }
@@ -67,19 +71,15 @@ object LyricsBridge {
 
     fun clear() {
         update {
-            LyricsSnapshot(
-                playing = false,
-                sequence = sequence,
-            )
+            LyricsSnapshot(playing = false)
         }
     }
 
     private fun update(transform: LyricsSnapshot.() -> LyricsSnapshot) {
-        val updated = synchronized(lock) {
-            snapshot.transform().copy(sequence = snapshot.sequence + 1).also {
-                snapshot = it
-            }
+        synchronized(lock) {
+            val updated = snapshot.transform().copy(sequence = snapshot.sequence + 1)
+            snapshot = updated
+            service?.publish(updated)
         }
-        service?.publish(updated)
     }
 }
